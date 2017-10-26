@@ -9,7 +9,7 @@ var mongoose = require("mongoose");
 mongoose.connect("mongodb://admin:admin@ds139122.mlab.com:39122/securitytest");
 
 // acquire user schema
-require("./user.js");
+require("./models/user.js");
 var User = mongoose.model("User");
 
 // default route
