@@ -1,0 +1,17 @@
+{
+  "name": "nosqlinjection",
+  "version": "1.0.0",
+  "description": "vulnerable injection in mongodb using express and mongoose",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "martin",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.12.4"
+  }
+}
