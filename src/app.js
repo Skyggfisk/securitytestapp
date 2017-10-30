@@ -34,18 +34,35 @@ app.post("/signup", function(req, res) {
 
 // login route
 app.post("/login", function(req, res) {
-  User.findOne(
-    { username: req.body.username, password: req.body.password },
-    function(err, data) {
-      if (err) {
-        res.send(err);
-      } else if (data) {
-        res.send("User login successful");
-      } else {
-        res.send("Wrong username or password");
+  // if query url exists
+  if (req.query.username) {
+    User.findOne(
+      { username: req.query.username, password: req.query.password },
+      function(err, data) {
+        if (err) {
+          res.send(err);
+        } else if (data) {
+          res.send("User login successful");
+        } else {
+          res.send("Wrong username or password");
+        }
       }
-    }
-  );
+    );
+    // else use body
+  } else {
+    User.findOne(
+      { username: req.body.username, password: req.body.password },
+      function(err, data) {
+        if (err) {
+          res.send(err);
+        } else if (data) {
+          res.send("User login successful");
+        } else {
+          res.send("Wrong username or password");
+        }
+      }
+    );
+  }
 });
 
 // start server on localhost:3000
