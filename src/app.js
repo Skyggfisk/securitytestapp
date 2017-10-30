@@ -6,7 +6,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // connect to mongodb
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://admin:admin@ds139122.mlab.com:39122/securitytest");
+var connections = require("./connections.json");
+mongoose.connect(connections.securityTestDb);
 
 // acquire user schema
 require("./models/user.js");
